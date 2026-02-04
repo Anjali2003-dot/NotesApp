@@ -12,14 +12,12 @@ export default function Register(){
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-
         try {
-            const res = await fetch("https://todo-backend-4xu0.onrender.com/api/auth/register", {
+            const res = await fetch("https://notesapp-1-k6zg.onrender.com/api/auth/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify({name: username, email, password}),
             });
-
             const data = await res.json();
             if (res.ok) {
                 setMessage(data.message);
@@ -36,21 +34,17 @@ export default function Register(){
             console.error(err);
             setMessage("Error registering user");
         }
-
     };
-
     return (
-        <div className="auth-page">
+        
         <div className="form-container glass-card">
             <h2>Register</h2>
-            {/* {message && <p className="error-text">{message}</p>} */}
 
             {message && (
                 <p className={isSuccess ? "success-text" : "error-text"}>
                     {message}
                 </p>
             )}
-            
 
             <form onSubmit={handleSubmit}>
                 <label className="input-label">Username</label>
@@ -86,7 +80,7 @@ export default function Register(){
                 Already have an account? <Link to="/login">Login</Link>
             </p>
         </div>
-      </div>  
+      
     );
 
 }
