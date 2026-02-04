@@ -1,4 +1,12 @@
+
+
+
 {
+  "name": "notesapp",
+  "private": true,
+  "scripts": {
+    "start": "cd backend && node server.js"
+  },
   "dependencies": {
     "react-router-dom": "^6.30.2"
   }
