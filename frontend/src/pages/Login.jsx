@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 
 export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +23,7 @@ export default function Login(){
 
             if(res.ok && data.token) {
                 localStorage.setItem("token", data.token);
-                window.location.href = "/notes";  // redirect to notes page
+                navigate("/notes");  // redirect to notes page
             } else {
                 setMessage(data.error || "Login failed");
             }
