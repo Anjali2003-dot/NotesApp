@@ -11,7 +11,7 @@ export default function Login(){
         console.log("SUBMIT CLICKED");
 
         try {
-            const res = await fetch("https://todo-backend-4xu0.onrender.com/api/auth/login", {
+            const res = await fetch("https://notesapp-1-k6zg.onrender.com/api/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password}),
@@ -34,7 +34,7 @@ export default function Login(){
     };
 
     return (
-        <div className="auth-page">
+        
 
         <div className="form-container glass-card">
             <h2>Login</h2>
@@ -60,15 +60,12 @@ export default function Login(){
                   required
                 />
                 <button className="btn-primary" type="submit">Login</button>  
-
-
-
             </form>
 
             <p style={{ marginTop: "12px", textAlign: "center" }}>
                 Don't have an account? <Link to="/register">Register</Link>
             </p>
         </div>
-      </div>  
+       
     );
 }
