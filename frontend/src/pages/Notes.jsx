@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Notes() {
     const [notes, setNotes] = useState([]);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [editingId, setEditingId] = useState(null);
+    const navigate = useNavigate();
 
     // Fetch notes on Load
     useEffect(() => {
@@ -100,7 +102,7 @@ export default function Notes() {
     // Logout
     const handleLogout = () => {
         localStorage.removeItem("token");
-        window.location.href = "/login";
+        navigate ("/login");
     };
 
     return (
